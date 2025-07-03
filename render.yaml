@@ -1,13 +1,15 @@
 services:
   - type: worker
     name: sithum-telegram-bot
-    runtime: python
-    repo: https://github.com/sithumax/sithum-telegram-bot
-    branch: main
+    env: python
     buildCommand: "pip install -r requirements.txt"
     startCommand: "python main.py"
+    repo: https://github.com/sithumax/sithum-telegram-bot
+    branch: main
+    autoDeploy: true
     envVars:
       - key: TELEGRAM_BOT_TOKEN
         sync: false
       - key: OPENROUTER_API_KEY
         sync: false
+
